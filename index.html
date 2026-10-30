@@ -21,6 +21,9 @@
   <div class = "chart-container" >
     <canvas id = chart></canvas>
   </div>
+  <div class="chart-container">
+        <canvas id="candyTypeChart"></canvas>
+    </div>
   <script>
   const ctx=document.getElementById("chart");
   new Chart(ctx, {
@@ -40,27 +43,6 @@
             pointBackgroundColor:"#FF0155"
           }]
       },
-
-  const candyTypeCtx = document.getElementById("candyTypeChart");
-new Chart(candyTypeCtx, {
-    type: "bar",
-    data: {
-        labels: ["Chocolate Bars", "Sour Gummy Candies", "Fruity Chews", "Candy Corn", "Caramels/Toffees"],
-        datasets: [{
-            label: "Preferred Candy Type in 2026 (%)",
-            data: [45.5, 22.0, 16.5, 4.0, 12.0],
-            backgroundColor: [
-                "#4A2E2B",
-                "#9C27B0",
-                "#FF5722",
-                "#FFEB3B",
-                "#FF9800"
-            ],
-            borderColor: "#1A1A1A",
-            borderWidth: 2
-        }]
-    },
-  
       options:{
         responsive:true, 
         maintainAspectRatio:true,
@@ -77,6 +59,36 @@ new Chart(candyTypeCtx, {
         }
       }
   });
+    const candyTypeCtx = document.getElementById("candyTypeChart");
+        new Chart(candyTypeCtx, {
+            type: "bar",
+            data: {
+                labels: ["Chocolate Bars", "Sour Gummy Candies", "Fruity Chews", "Candy Corn", "Caramels/Toffees"],
+                datasets: [{
+                    label: "Preferred Candy Type in 2026 (%)",
+                    data: [45.5, 22.0, 16.5, 4.0, 12.0],
+                    backgroundColor: [
+                        "#4A2E2B", 
+                        "#9C27B0",
+                        "#FF5722",
+                        "#FFEB3B",
+                        "#FF9800",
+                    ],
+                    borderColor: "#1A1A1A",
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: true }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
   </script>
 </body>
 </html>
